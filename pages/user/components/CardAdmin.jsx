@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-const DashboardCard = () =>{
+const CardAdmin = () =>{
     const [counter, setCounter]=useState(5);
 
     const increment =()=>{
@@ -24,24 +24,12 @@ const DashboardCard = () =>{
                 <p className="text-xs font-medium">Stock</p>
                 <p className="text-xs font-medium">{counter}</p>
                 </div>
-                <div className="mt-0.5 w-full h-auto flex justify-between">
-                <p className="text-xs font-medium">Quantity</p>
-                <div className="gap-x-0 flex justify-between border-lime-400 border-solid border-y-2 text-center">
-                    <button className='w-5 h-4.5 border-lime-400 border-solid border-x-2' onClick={increment}>
-                    <IoIosArrowUp className='w-4'/>
-                    </button>
-                    <div className="w-6 h-4.5 text-center text-slate-400">{counter}</div>
-                    <button className='w-5 h-4.5 border-lime-400 border-solid border-x-2'>
-                    <IoIosArrowDown className='w-4' onClick={decrement}/>
-                    </button>
-                    </div>
-                </div>
                 <div className="mt-1.5 flex items-center justify-around">
-                <button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Buy</button>
-                <button className="rounded-full w-12 h-5.5 bg-white text-xs text-slate-400 border-2 border-slate-400">+Cart</button>
+                <button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Edit</button>
+                <button className="rounded-full w-12 h-5.5 bg-white text-xs text-slate-400 border-2 border-slate-400">Delete</button>
                 </div>
             </div>
         </div>
     )
 }
-export default DashboardCard;
+export default CardAdmin;
