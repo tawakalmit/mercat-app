@@ -2,15 +2,20 @@ import React, {useState} from 'react';
 import Image from 'next/image';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 const DashboardCard = () =>{
-    const [counter, setCounter]=useState(5);
+    const [counter, setCounter]=useState(0);
+    const [stock, setStock]=useState(10);
 
     const increment =()=>{
+        if(stock>=1){
         setCounter(counter+1);
+        setStock(stock-1);
+        }
     }
     
     const decrement =()=>{
         if(counter>=1){
-        setCounter(counter-1);
+            setCounter(counter-1);
+            setStock(stock+1);
         }
     }
 
@@ -22,7 +27,7 @@ const DashboardCard = () =>{
                 <h3 className="text-[0.6rem] font-medium text-lime-400 mt-1.5">IDR 20.000</h3>
                 <div className="mt-0.5 w-full h-auto flex justify-between gap-0">
                 <p className="text-xs font-medium">Stock</p>
-                <p className="text-xs font-medium">{counter}</p>
+                <p className="text-xs font-medium">{stock}</p>
                 </div>
                 <div className="mt-0.5 w-full h-auto flex justify-between">
                 <p className="text-xs font-medium">Quantity</p>
