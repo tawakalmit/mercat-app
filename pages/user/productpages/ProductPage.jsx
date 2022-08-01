@@ -6,7 +6,14 @@ const ProductPage =() => {
     return(
         <>
         <NavBar />
-        <div className="container pl-5 pr-5 pt-4">
+        <div className="grid justify-items-center md:grid-cols-4 lg:grid-cols-5 grid-flow-row gap-5 w-screen h-auto p-5">
+        <DashboardCard />
+        <DashboardCard />
+        <DashboardCard />
+        <DashboardCard />
+        <DashboardCard />
+        <DashboardCard />
+        <DashboardCard />
         <DashboardCard />
         <DashboardCard />
         <DashboardCard />
