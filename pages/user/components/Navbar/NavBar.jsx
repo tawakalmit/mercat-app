@@ -4,11 +4,11 @@ import { CgProfile } from "react-icons/cg";
 
 const NavBar =()=>{
     return(
-        <div className="w-full h-none bg-[#9ACD32] flex justify-around p-5">
-        <IoStorefront color="white" className="h-11 w-auto flex justify-center cursor-pointer"/>
-        <HiOutlineMoon color="white" className="h-11 w-auto cursor-pointer"/>
-        <HiOutlineShoppingCart color="white" className="h-11 w-auto cursor-pointer"/>
-        <CgProfile color="white" className="h-11 w-auto cursor-pointer"/>
+        <div className="container w-full h-none bg-lime-400 flex justify-around p-5">
+        <IoStorefront className="h-11 w-auto flex justify-center"/>
+        <HiOutlineMoon className="h-11 w-auto"/>
+        <HiOutlineShoppingCart className="h-11 w-auto"/>
+        <CgProfile className="h-11 w-auto"/>
         </div>
     )
 };
