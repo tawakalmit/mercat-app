@@ -1,6 +1,6 @@
 import React from 'react'
 
-import NavBar from "./user/components/Navbar/NavBar"
+import NavBar from './user/components/NavBar'
 import Userhighlight from '../components/Userhighlight'
 import Orderhighlight from '../components/Orderhighlight'
 
