@@ -2,11 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import ProductPage from "./user/productpages/ProductPage";
+import ShoppingCart from "./user/productpages/ShoppingCart";
 
 export default function Home() {
   return (
     <>
-      <ProductPage />
+      <ShoppingCart />
     </>
   );
 }
