@@ -11,6 +11,9 @@ const ShoppingCart =() => {
         </div>
         <div className="grid justify-items-center sm:grid-cols-2 sm:px-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-5 w-screen h-auto p-5">
         <ShoppingCartCard />
+        <ShoppingCartCard />
+        <ShoppingCartCard />
+        <ShoppingCartCard />
         </div>
         </>
     )

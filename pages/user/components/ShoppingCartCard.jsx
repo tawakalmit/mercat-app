@@ -12,7 +12,7 @@ const DashboardCard = () =>{
             if(stock>=1){
                 setCounter(counter+1);
                 setStock(stock-1);
-                setSubtotal(counter*harga);
+                setSubtotal((counter+1)*harga);
             }
         }
         
@@ -20,7 +20,7 @@ const DashboardCard = () =>{
             if(counter>=1){
             setCounter(counter-1);
             setStock(stock+1);
-            setSubtotal(counter*harga)}
+            setSubtotal((counter-1)*harga)}
         }
     
 
@@ -48,7 +48,7 @@ const DashboardCard = () =>{
                 </div>
                     <div className="mt-0.5 w-full h-auto flex justify-between gap-0">
                     <p className="text-xs font-medium">Subtotal</p>
-                    <p className="text-xs font-medium">{subtotal}</p>
+                    <p className="text-xs font-medium">IDR {subtotal}</p>
                     </div>
             </div>
         </div>
