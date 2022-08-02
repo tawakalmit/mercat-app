@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import CustomInput from "../components/CustomInput";
 import Button from "../components/Button";
 import Link from "next/link";
-import Dropzone from "../components/DropZone";
 import Layout from "../components/Layout";
 
 function Addproduct() {
@@ -59,7 +58,6 @@ function Addproduct() {
     <Layout>
       <div className="flex flex-row items-center justify-center mt-10">
         <form className="flex flex-col gap-4 min-w-[40%]" onSubmit={(e) => handleSubmit(e)}>
-          <Dropzone />
           <CustomInput ptext="Name Product" id="input-product" type="name product" placeholder="product" onChange={(e) => setProductname(e.target.value)} />
 
           <CustomInput ptext="Price" id="input-price" type="price" placeholder="price" onChange={(e) => setPrice(e.target.value)} />
