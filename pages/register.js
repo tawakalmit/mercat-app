@@ -33,20 +33,17 @@ function Register() {
       address,
       password,
     };
-    var requestOption = {
+    var requestOptions = {
       method: "POST",
       header: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     };
-    fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/users", requestOptions).then((response) => response.json());
-    console
-      .log(response)
+    fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/users", requestOptions)
+      .then((response) => response.json())
       .then((result) => {
         const { message, data } = result;
         if (result.code === 200) {
-          if (data) {
-            router.push("/login");
-          }
+          router.push("/login");
         }
         alert(message);
       })
@@ -67,14 +64,14 @@ function Register() {
         <div className="p-6 rounded-2xl bg-transparent h-fit w-80 flex flex-col md:bg-white 2xl:scale-150">
           <h1 className="text-white font-semibold text-2xl mx-auto md:text-black">Register</h1>
           <h2 className="text-center text-white text-md opacity-70 mx-auto mb-6 md:text-black">Be a part of our large community</h2>
-          <form>
-            <CustomInput ptext="User Name" id="input-username" type="text" placeholder="mugiwara" />
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <CustomInput ptext="User Name" id="input-username" type="text" placeholder="mugiwara" onChange={(e) => setUserName(e.target.value)} />
 
-            <CustomInput ptext="Email" id="input-email" type="email" placeholder="mugiwara@yahoo.com" />
+            <CustomInput ptext="Email" id="input-email" type="email" placeholder="mugiwara@yahoo.com" onChange={(e) => setEmail(e.target.value)} />
 
-            <CustomInput ptext="Address" id="input-address" type="text" placeholder="East Blue" />
+            <CustomInput ptext="Address" id="input-address" type="text" placeholder="East Blue" onChange={(e) => setAddress(e.target.value)} />
 
-            <CustomInput ptext="Password" id="input-password" type="password" placeholder="Enter Password" />
+            <CustomInput ptext="Password" id="input-password" type="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)} />
 
             <div className="flex flex-row justify-around mt-2 md:justify-center">
               <input type="checkbox" className="mr-2" />
