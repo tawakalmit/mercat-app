@@ -1,6 +1,7 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
-import ShoppingCartCard from '../components/ShoppingCartCard';
+import NavBar from '../../components/navbar';
+import ShoppingCartCard from '../../components/shoppingcartcard';
+import Link from 'next/link';
 
 const ShoppingCart =() => {
     return (
@@ -14,6 +15,9 @@ const ShoppingCart =() => {
         <ShoppingCartCard />
         <ShoppingCartCard />
         <ShoppingCartCard />
+        </div>
+        <div className="flex justify-center w-full h-auto">
+        <Link href='/user/checkout'><button className='text-white bg-slate-400 w-36 h-10 rounded-3xl md:mt-5 lg:mt-5'>Order</button></Link>
         </div>
         </>
     )
