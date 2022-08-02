@@ -2,16 +2,21 @@ import React from "react";
 import CustomInput from "../components/CustomInput";
 import Button from "../components/Button";
 import Link from "next/link";
-import NavBack1 from "../components/NavBack1";
-import Dropzone from "../components/DropZone";
+import { IoChevronBackSharp } from "react-icons/io5";
 
 export default function addproduct() {
+
   return (
     <div>
-      <NavBack1 />
+      <div className="w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer">
+        <Link href="/dasboard"><div className="flex items-center">
+          <IoChevronBackSharp size={40} color="white" />
+          <p className="text-white text-xl">Dashboard</p>
+        </div></Link>
+      </div>
       <div className="flex flex-row items-center justify-center mt-10">
         <form>
-          <Dropzone />
+          
           <CustomInput ptext="Name Product" id="input-product" type="text" placeholder="product" />
 
           <CustomInput ptext="Price" id="input-price" type="email" placeholder="price" />
