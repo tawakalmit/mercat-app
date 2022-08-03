@@ -28,6 +28,7 @@ function Dashboard() {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result
+        console.log(data)
         setDatas(data)
       })
       .catch((err) => {

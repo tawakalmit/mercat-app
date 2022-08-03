@@ -9,6 +9,7 @@ export default function User() {
   const [username, setUsername] = useState ('');
   const [photoprofile,setPhotoprofile] = useState ('');
   const [data, setData] =useState([]);
+  const [quantity, setQuantity] = useState(0)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,14 +27,11 @@ export default function User() {
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log('ini result',result);
-        const { data } = result
-        const { userhighlight } = result.data;
-        console.log('ini data',data.username);
-        console.log('ini array',data[0].productname)
-        console.log('ini userhighlight',userhighlight)
-        // console.log(data.data.id)
-        // setData()
+        // console.log(result);
+        const { data, username, photoprofile } = result;
+        setUsername(username);
+        setPhotoprofile(photoprofile);
+        setData();
       })
       .catch((err) => {
         alert(err.toString())
@@ -44,12 +42,9 @@ export default function User() {
   return (
     <div>
       <NavBar />
-      <Userhighlight username={data.username} photoprofile={data.photoprofile}/>
+      <Userhighlight username={username} photoprofile={photoprofile}/>
       <div className="flex flex-col mt-12">
-
-      
-        {/* <Orderhighlight key={data.data.id} productname={data.data.productname} quantity={data.data.quantity} totalprice={data.data.totalprice}/> */}
-
+      <Orderhighlight />
       </div>
     </div>
   );
