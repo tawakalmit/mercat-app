@@ -11,7 +11,7 @@ const DashboardCard = () =>{
         const increment =()=>{
             if(stock>=1){
                 setCounter(counter+1);
-                setStock(stock-1);
+                // setStock(stock-1);
                 setSubtotal((counter+1)*harga);
             }
         }
@@ -19,7 +19,7 @@ const DashboardCard = () =>{
         const decrement =()=>{
             if(counter>=1){
             setCounter(counter-1);
-            setStock(stock+1);
+            // setStock(stock+1);
             setSubtotal((counter-1)*harga)}
         }
     

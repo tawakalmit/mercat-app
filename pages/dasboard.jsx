@@ -36,6 +36,8 @@ function Dashboard() {
       .finally(() => setLoading(false));
   }
 
+ 
+
   return(
     <div>
       <div className="w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer">
@@ -50,7 +52,7 @@ function Dashboard() {
           key={data.productname}
           productname={data.productname}
           price={data.price.toLocaleString()}
-          stock={data.stock}
+          stock={data.stock} onClick={(e)=>handleDelete}
           />
         ))}
       </div>

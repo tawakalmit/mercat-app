@@ -10,7 +10,7 @@ export default function register() {
     <div className="flex align-items:center w-full min-h-screen bg-cover bg-[url('../asset/mercat.jpg')]">
       <div className="w-8/12 m-auto flex justify-between items-center md:h-fit">
         <div className="hidden w-1/2 md:block 2xl:scale-150">
-          <Image src={Logo} alt="Logo" className="w-80" />
+          <Image src={Logo} className="w-80" alt="logo" />
           <h2 className="text-3xl font-semibold text-white text-center">
             One stop online shop
           </h2>

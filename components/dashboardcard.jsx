@@ -5,15 +5,6 @@ import Link from 'next/link';
 
 const DashboardCard = ({productname, price, stok}) =>{
 
-    const [counter, setCounter]=useState(0);
-    
-    const increment =()=>{
-        setCounter(counter+1);
-    }
-    
-    const decrement =()=>{
-        setCounter(counter-1);
-    }
 
     return(
         <div className="mb-5">
@@ -24,18 +15,6 @@ const DashboardCard = ({productname, price, stok}) =>{
                 <div className="mt-0.5 w-full h-auto flex justify-between gap-0">
                     <p className="text-xs font-medium">Stock</p>
                     <p className="text-xs font-medium">{stok}</p>
-                </div>
-                <div className="mt-0.5 w-full h-auto flex justify-between">
-                    <p className="text-xs font-medium">Quantity</p>
-                    <div className="gap-x-0 flex justify-between border-lime-400 border-solid border-y-2 text-center">
-                        <button className='w-5 h-4.5 border-lime-400 border-solid border-x-2' onClick={increment}>
-                        <IoIosArrowUp className='w-4'/>
-                        </button>
-                        <div className="w-6 h-4.5 text-center text-slate-400">{counter}</div>
-                        <button className='w-5 h-4.5 border-lime-400 border-solid border-x-2'>
-                            <IoIosArrowDown className='w-4' onClick={decrement}/>
-                        </button>
-                    </div>
                 </div>
                 <div className="mt-1.5 flex items-center justify-around">
                 <Link href='/user/shoppingcart'><button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white md:w-20 h-7">Buy</button></Link>
