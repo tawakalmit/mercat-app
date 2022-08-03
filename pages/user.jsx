@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 import NavBar from "../components/navbar";
 import Userhighlight from "../components/Userhighlight";
@@ -6,15 +6,16 @@ import Orderhighlight from "../components/Orderhighlight";
 
 export default function User() {
 
-  const [username, setUsername] = useState ('');
-  const [photoprofile,setPhotoprofile] = useState ('');
-  const [data, setData] =useState([]);
-  const [quantity, setQuantity] = useState(0)
-  const [loading, setLoading] = useState(true);
+  const [datas, setDatas] = useState([])
+  const [username, setusername] = useState("")
+  const [productname, setproductname] = useState("")
+  const [stock, setstock] = useState(0)
+  const [price, setprice] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetchData();
-  }, [username, photoprofile, data]);
+  }, []);
 
   const fetchData = () => {
     var requestOptions = {
@@ -27,11 +28,10 @@ export default function User() {
     )
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
-        const { data, username, photoprofile } = result;
-        setUsername(username);
-        setPhotoprofile(photoprofile);
-        setData();
+        const {data, username} = result
+        setusername(username)
+        setDatas(data)
+        console.log(data)
       })
       .catch((err) => {
         alert(err.toString())
@@ -42,9 +42,18 @@ export default function User() {
   return (
     <div>
       <NavBar />
-      <Userhighlight username={username} photoprofile={photoprofile}/>
+      <Userhighlight
+      username={username}
+      />
       <div className="flex flex-col mt-12">
-      <Orderhighlight />
+      {datas.map((data) => (
+          <Orderhighlight
+          key={data.productname}
+          productname={data.productname}
+          price={data.totalprice.toLocaleString()}
+          stock={data.quantity}
+          />
+        ))}
       </div>
     </div>
   );
