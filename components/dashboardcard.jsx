@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import Link from 'next/link';
+
 const DashboardCard = () =>{
     const [counter, setCounter]=useState(0);
     const [stock, setStock]=useState(10);
@@ -42,7 +44,7 @@ const DashboardCard = () =>{
                     </div>
                 </div>
                 <div className="mt-1.5 flex items-center justify-around">
-                <button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Buy</button>
+                <Link href='/user/shoppingcart'><button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Buy</button></Link>
                 <button className="rounded-full w-12 h-5.5 bg-white text-xs text-slate-400 border-2 border-slate-400">+Cart</button>
                 </div>
             </div>

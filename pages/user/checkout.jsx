@@ -1,12 +1,13 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import Link from 'next/link';
 
 const Checkout =()=>{
     return(
         <>
         <div className="w-full h-none bg-lime-400 flex justify-between py-5 px-7">
             <div className="flex justify-start">
-            <IoIosArrowBack className="h-11 w-auto flex justify-center text-white"/>
+            <Link href='/user/shoppingcart'><IoIosArrowBack className="h-11 w-auto flex justify-center text-white"/></Link>
             <h2 className="text-white text-2xl font-semibold mt-1 ml-4">Products</h2>
             </div>
         </div>

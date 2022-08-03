@@ -1,6 +1,6 @@
 import React from 'react';
-import DashboardCard from '../components/DashboardCard';
-import NavBar from '../components/NavBar';
+import DashboardCard from '../../components/dashboardcard';
+import NavBar from '../../components/navbar';
 
 const ProductPage =() => {
     return(
