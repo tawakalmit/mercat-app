@@ -1,5 +1,4 @@
 import { IoChevronBackSharp } from "react-icons/io5";
-
 const NavBack = () => {
   return (
     <div className="w-full h-none bg-[#9ACD32] flex p-2">
