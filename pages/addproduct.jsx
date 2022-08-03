@@ -41,10 +41,9 @@ function Addproduct() {
     fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/admin/products", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        const { message, data } = result;
-        console.log(result);
+        const { message } = result;
         if (result.code === 200) {
-          if (data) {
+          if (message) {
             router.push("/dasboard");
           }
         }
