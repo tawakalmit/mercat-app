@@ -28,6 +28,7 @@ function Dashboard() {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result
+        console.log(data)
         setDatas(data)
       })
       .catch((err) => {
@@ -35,6 +36,8 @@ function Dashboard() {
       })
       .finally(() => setLoading(false));
   }
+
+ 
 
   return(
     <div>
@@ -50,7 +53,7 @@ function Dashboard() {
           key={data.productname}
           productname={data.productname}
           price={data.price.toLocaleString()}
-          stock={data.stock}
+          stock={data.stock} onClick={(e)=>handleDelete}
           />
         ))}
       </div>
