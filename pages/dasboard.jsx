@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import ProductAdmin from "../components/productadmin";
 import { useRouter } from "next/router";
 import {IoLogOut} from "react-icons/io5"
+import Link from "next/link";
 
 
 function Dashboard() {
@@ -36,6 +37,9 @@ function Dashboard() {
       .finally(() => setLoading(false));
   }
 
+  const toAddProduct = () => {
+    route.push("/addproduct")
+  }
  
 
   return(
@@ -43,6 +47,7 @@ function Dashboard() {
       <div className="w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer">
         <div className="mx-auto w-11/12 flex justify-between items-center">
           <p className="text-white">Administrator Dashboard</p>
+          <p className="text-white" onClick={(e) => toAddProduct(e)}>Add product</p>
           <IoLogOut onClick={()=>{route.push('/')}} size={40} color="white" />
         </div>
       </div>
