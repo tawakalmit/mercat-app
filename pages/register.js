@@ -5,7 +5,7 @@ import CustomInput from "../components/CustomInput";
 import Button from "../components/Button";
 import Link from "next/link";
 
-export default function register() {
+export default function Register() {
   return (
     <div className="flex align-items:center w-full min-h-screen bg-cover bg-[url('../asset/mercat.jpg')]">
       <div className="w-8/12 m-auto flex justify-between items-center md:h-fit">
