@@ -36,13 +36,13 @@ function Editproduct() {
       headers: { "Content-Type": "aplication/json" },
       body: JSON.stringify(body),
     };
-    fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/admin/products/${productid}`, requestOptions)
+    fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/admin/products/{productid}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const { message } = result;
         if (result.code === 200) {
           if (message) {
-            router.push("/dasboard");
+            route.push("/dasboard");
           }
         }
         alert(message);
@@ -55,10 +55,15 @@ function Editproduct() {
 
   return (
     <>
-    <div className="w-full h-none bg-[#9ACD32] flex p-2">
-      <IoChevronBackSharp onClick={()=>{route.push('/dasboard')}} className="h-8 w-auto justify-center ml-4 text-white" />
-      <p className="flex sm:justify-center text-white font-bold ml-4">Add Product </p>
-    </div>
+      <div className="w-full h-none bg-[#9ACD32] flex p-2">
+        <IoChevronBackSharp
+          onClick={() => {
+            route.push("/dasboard");
+          }}
+          className="h-8 w-auto justify-center ml-4 text-white"
+        />
+        <p className="flex sm:justify-center text-white font-bold ml-4">Add Product </p>
+      </div>
 
       <div className="flex flex-row items-center justify-center mt-10">
         <form className="flex flex-col gap-4 min-w-[40%]" onSubmit={(e) => handleSubmit(e)}>
@@ -68,7 +73,7 @@ function Editproduct() {
 
           <CustomInput ptext="Stock" id="input-stock" type="text" placeholder="0" onChange={(e) => setStock(e.target.value)} />
 
-          <input type='file' id="input-file"/>
+          <input type="file" id="input-file" />
           <div className="flex flex-row items-center justify-center pt-10">
             <Button kelas={"bg-[#9ACD32] text-white font-bold py-2 px-4 rounded-full w-50 mt-2 md: rounded w-35"} label="Save Changes" />
           </div>
