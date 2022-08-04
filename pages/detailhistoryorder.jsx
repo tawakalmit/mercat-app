@@ -1,9 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoChevronBackSharp } from "react-icons/io5";
 import Link from 'next/link';
-import Product from '../components/Product';
+import Image from 'next/image';
+import Historydetail from '../components/historydetail';
 
 export default function detailHistoryOrder() {
+
+  const [datas, setDatas] = useState([])
+  const [productpic, setproductpic] = useState("")
+  const [productname, setproductname] = useState("")
+  const [unitprice, setunitprice] = useState(0)
+  const [quantity, setquantity] = useState(0)
+  const [totalprice, settotalprice] = useState(0)
+  const [address, setaddress] = useState("")
+  const [paymentmethod, setpaymentmethod] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    fetchData();
+  }, [productpic, productname,unitprice, quantity, totalprice, address, paymentmethod]);
+
+  const fetchData = () => {
+    var requestOptions = {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch(
+      "https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/orders",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        const { data } = result
+        setDatas(data)
+      })
+      .catch((err) => {
+        alert(err.toString())
+      })
+      .finally(() => setLoading(false));
+  }
+
+  
+
   return (
     <>
     <div className='w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer'>
@@ -12,25 +50,17 @@ export default function detailHistoryOrder() {
       <p className='text-white text-xl'>Profile</p>
       </div></Link>
     </div>
-    <div className='mt-5 w-11/12 mx-auto items-center md:w-5/12'>
-      <Product />
-      <div className='w-full mt-10 mb-5 mx-auto flex justify-between'>
-        <h2>Total</h2>
-        <p>IDR 100.000</p>
-      </div>
-      <div className='w-full mx-auto mb-5 flex justify-between'>
-        <h2>Payment Method</h2>
-        <p>BCA Virtual Account</p>
-      </div>
-      <div className='w-full mx-auto mb-5 flex justify-between'>
-        <h2>Penerima</h2>
-        <p>Mugiwara</p>
-      </div>
-      <div className='w-full mx-auto mb-5 flex justify-between'>
-        <h2>Adress</h2>
-        <div className='w-32'><p className='text-xs text-justify'>TB Simatupang, Jl Nangka Raya No. 58 C RW 05 Tanjung Baru Kec.Jagakarsa Kota Jaksel DKI Jakarta</p></div>
-      </div>
-    </div>
+    {datas.map((data) => (
+          <Historydetail
+          address={data.address}
+          productname={data.productname}
+          quantity={data.quantity}
+          totalprice={data.totalprice.toLocaleString()}
+          unitprice={data.unitprice.toLocaleString()}
+          />
+        ))}
+    
+    
     </>
   )
 }
