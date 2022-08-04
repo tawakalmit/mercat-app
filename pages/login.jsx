@@ -43,7 +43,7 @@ function Login() {
       .then((result) => {
         const { code, message, data } = result;
         if (code === 200) {
-          router.push("/");
+          router.push("/productpage");
         }
         alert(message);
       })
