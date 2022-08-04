@@ -19,7 +19,7 @@ function Login() {
   const [disabled, setDisabled] = useState(true)
 
   useEffect(() => {
-    if (token !== "0") {
+    if (code === 200) {
       if (role === "admin") {
         router.push("/dasboard");
       } else {
@@ -58,11 +58,7 @@ function Login() {
           const { token } = data;
           localStorage.setItem("token", token);
           setToken(token);
-            if (role === "admin") {
-              router.push("/dasboard");
-            } else {
-              router.push("/productpage");
-            }
+          router.push("/dasboard");
         }
         alert(message);
       })
