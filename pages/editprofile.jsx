@@ -4,10 +4,9 @@ import { IoChevronBackSharp } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import UpdateUserInfo from "../components/UpdateUserInfo";
 import Button from "../components/Button";
-import Link from "next/link";
 
 function Editprofile() {
-  const router = useRouter();
+  const route = useRouter();
   const [photoprofile, setPhotoprofile] = useState(0);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -39,10 +38,9 @@ function Editprofile() {
       .then((response) => response.json())
       .then((result) => {
         const { message } = result;
-        console.log(result);
         if (result.code === 200) {
           if (message) {
-            router.push("/editprofile");
+            route.push("/editprofile");
           }
         }
         alert(message);
@@ -57,14 +55,14 @@ function Editprofile() {
     <>
       <div className="w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer">
         <div className="flex items-center">
-          <Link href="/user">
-            <IoChevronBackSharp size={40} color="white" />
-          </Link>
+            <IoChevronBackSharp onClick={()=>{route.push('/user')}} size={40} color="white" />
           <p className="text-white text-xl">Profile</p>
         </div>
       </div>
       <form onSubmit={(e) => handleEdit(e)} className="flex flex-col items-center mt-10 md:w-4/12 mx-auto">
+
         <CgProfile size={100} />
+        
 
         <UpdateUserInfo ptext="User Name" id="update-username" type="text" placeholder="mugiwara" />
 

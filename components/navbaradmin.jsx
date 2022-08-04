@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const NavbarAdmin =()=>{
 return(
-    <div className="container w-full h-none bg-lime-400 flex justify-between p-5">
+    <div className="w-full h-none bg-lime-400 flex justify-between p-5">
         <div className="flex justify-start">
-        <Link href='/admin/admindashboard'><IoIosArrowBack className="h-11 w-auto flex justify-center text-white"/></Link>
+        <Link href='/admindashboard'><IoIosArrowBack className="h-11 w-auto flex justify-center text-white"/></Link>
         <h2 className="text-white text-2xl font-semibold mt-1">Admin</h2>
         </div>
         <div className="flex justify-end">

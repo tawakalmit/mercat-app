@@ -1,6 +1,6 @@
 import React from "react";
-import CardAdmin from "../../components/cardadmin";
-import NavbarAdmin from '../../components/navbaradmin';
+import CardAdmin from "../components/cardadmin";
+import NavbarAdmin from '../components/navbaradmin';
 
 const AdminDashboard = () => {
     return (
