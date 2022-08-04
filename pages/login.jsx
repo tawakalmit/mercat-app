@@ -58,11 +58,11 @@ function Login() {
     <div className="flex align-items:center w-full min-h-screen bg-cover bg-[url('../asset/mercat.jpg')]">
                 <div className="w-8/12 m-auto flex justify-between items-center md:h-fit">
                     <div className="hidden w-1/2 md:block">
-                        <Image src={Logo} className="w-80" />
+                        <Image src={Logo} className="w-80" alt='logo'/>
                         <h2 className="invisible text-3xl font-semibold text-white text-center md:visible">One stop online shop</h2>
                     </div>
                     <div className="p-6 rounded-2xl bg-transparent h-fit w-80 flex flex-col mt-10 md:bg-white 2xl:scale-150">
-                        <div className='md:hidden'><Image src={Logo} /></div>
+                        <div className='md:hidden'><Image src={Logo} alt='logo' /></div>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <CustomInput 
                             ptext="User Name"

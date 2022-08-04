@@ -6,7 +6,7 @@ export default function Historydetail({address, productname, productpic, quantit
   return (
     <div className='mt-5 w-11/12 mx-auto items-center md:w-5/12'>
       <div className='h-fit text-center mx-auto w-56 flex-col border-solid border-2 border-lime-400 rounded-2xl p-2'>
-        <Image src={Gambar} />
+        <Image src={Gambar} alt='pic' />
         <h2 className='text-2xl'>{productname}</h2>
         <p className='text-[#9ACD32]'>IDR {unitprice}</p>
         <p>Quantity : {quantity}</p>
