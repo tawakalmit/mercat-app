@@ -11,50 +11,10 @@ function Addproduct() {
   const [productid, setProdctid] = useState(0);
   const [productpic, setProductpic] = useState("");
   const [productname, setProductname] = useState("");
+  const [description, setdescription] = useState("")
   const [price, setPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   var requestOptions = {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //     },
-  //   };
-
-  //   fetch(
-  //     "https://projectbiasa.site/products",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result)
-  //       // const { message, code, data } = result;
-  //       // const { email, first_name, last_name, image } = data;
-  //       // if ([401, 403].includes(code)) {
-  //       //   localStorage.removeItem("token");
-  //       //   setToken("0");
-  //       //   router.push("/login");
-  //       //   alert(message);
-  //       // } else {
-  //       //   setEmail(email);
-  //       //   setFirstName(first_name);
-  //       //   setLastName(last_name);
-  //       //   const insertHTTPS = image.replace("http", "https");
-  //       //   setImage(insertHTTPS);
-  //       // }
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  //     .finally(() => setLoading(false));
-  // };
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -101,9 +61,11 @@ function Addproduct() {
 
           <Image src={productpic} alt={productpic} width={200} height={200} />
 
-          <CustomInput ptext="Name Product" id="input-product" type="name product" placeholder="product" onChange={(e) => handleChange(e.target.value, "productname")} />
+          <CustomInput ptext="Name Product" id="input-product" type="text" placeholder="product" onChange={(e) => handleChange(e.target.value, "productname")} />
 
-          <CustomInput ptext="Price" id="input-price" type="price" placeholder="price" onChange={(e) => handleChange(e.target.value, "price")} />
+          <CustomInput ptext="Description" id="input-description" type="text" placeholder="description" onChange={(e) => handleChange(e.target.value, "description")} />
+
+          <CustomInput ptext="Price" id="input-price" type="number" placeholder="price" onChange={(e) => handleChange(e.target.value, "price")} />
 
           <CustomInput ptext="Stock" id="input-stock" type="text" placeholder="0" onChange={(e) => handleChange(e.target.value, "stock")} />
 
