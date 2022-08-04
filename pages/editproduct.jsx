@@ -3,11 +3,9 @@ import { useRouter } from "next/router";
 import { IoChevronBackSharp } from "react-icons/io5";
 import CustomInput from "../components/CustomInput";
 import Button from "../components/Button";
-import Link from "next/link";
-import Layout from "../components/Layout";
 
 function Editproduct() {
-  const router = useRouter();
+  const route = useRouter();
   const [productid, setProdctid] = useState(0);
   const [productpic, setProductpic] = useState("");
   const [productname, setProductname] = useState("");
@@ -58,7 +56,7 @@ function Editproduct() {
   return (
     <>
     <div className="w-full h-none bg-[#9ACD32] flex p-2">
-      <Link href='/dasboard'><IoChevronBackSharp className="h-8 w-auto justify-center ml-4 text-white" /></Link>
+      <IoChevronBackSharp onClick={()=>{route.push('/dasboard')}} className="h-8 w-auto justify-center ml-4 text-white" />
       <p className="flex sm:justify-center text-white font-bold ml-4">Add Product </p>
     </div>
 
@@ -72,7 +70,7 @@ function Editproduct() {
 
           <input type='file' id="input-file"/>
           <div className="flex flex-row items-center justify-center pt-10">
-            <Button kelas={"bg-[#9ACD32] text-white font-bold py-2 px-4 rounded-full w-50 mt-2 md: rounded w-35"} label="Add Product" />
+            <Button kelas={"bg-[#9ACD32] text-white font-bold py-2 px-4 rounded-full w-50 mt-2 md: rounded w-35"} label="Save Changes" />
           </div>
         </form>
       </div>

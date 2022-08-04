@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import ProductAdmin from "../components/productadmin";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import {IoLogOut} from "react-icons/io5"
 
 
 function Dashboard() {
-
+  const route = useRouter();
   const [datas, setDatas] = useState([])
   const [productname, setproductname] = useState("")
   const [price, setprice] = useState("")
@@ -28,7 +28,6 @@ function Dashboard() {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result
-        console.log(data)
         setDatas(data)
       })
       .catch((err) => {
@@ -44,7 +43,7 @@ function Dashboard() {
       <div className="w-full h-none bg-[#94CD32] flex justify-start p-2 cursor-pointer">
         <div className="mx-auto w-11/12 flex justify-between items-center">
           <p className="text-white">Administrator Dashboard</p>
-          <Link href={"/admin"}><IoLogOut size={40} color="white" /></Link>
+          <IoLogOut onClick={()=>{route.push('/')}} size={40} color="white" />
         </div>
       </div>
       <div className="w-full flex-wrap mx-auto mt-5 flex justify-around md:w-10/12">

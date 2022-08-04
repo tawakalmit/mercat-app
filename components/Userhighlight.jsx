@@ -49,7 +49,7 @@ export default function Userhighlight({ username, photoprofile }) {
           <Button kelas={"bg-[#BB1B0B] w-28 h-6 rounded-full text-[#ecf0f1] cursor-pointer ml-2"} onClick={(e) => handleDelete(e)} label="delete profile" />
 
           
-            <FiLogOut onClick={()=>{route.push('/login')}} className="ml-3 cursor-pointer" />
+            <FiLogOut onClick={()=>{route.push('/')}} className="ml-3 cursor-pointer" />
           
         </div>
       </div>

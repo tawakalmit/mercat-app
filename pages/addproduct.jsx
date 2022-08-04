@@ -3,11 +3,9 @@ import { useRouter } from "next/router";
 import { IoChevronBackSharp } from "react-icons/io5";
 import CustomInput from "../components/CustomInput";
 import Button from "../components/Button";
-import Link from "next/link";
-import Layout from "../components/Layout";
 
 function Addproduct() {
-  const router = useRouter();
+  const route = useRouter();
   const [productid, setProdctid] = useState(0);
   const [productpic, setProductpic] = useState("");
   const [productname, setProductname] = useState("");
@@ -44,7 +42,7 @@ function Addproduct() {
         const { message } = result;
         if (result.code === 200) {
           if (message) {
-            router.push("/dasboard");
+            route.push("/dasboard");
           }
         }
         alert(message);
@@ -58,7 +56,8 @@ function Addproduct() {
   return (
     <>
     <div className="w-full h-none bg-[#9ACD32] flex p-2">
-      <Link href='/dasboard'><IoChevronBackSharp className="h-8 w-auto justify-center ml-4 text-white" /></Link>
+        <IoChevronBackSharp onClick={()=>{route.push('/dasboard')}}className="h-8 w-auto justify-center ml-4 text-white" />
+
       <p className="flex sm:justify-center text-white font-bold ml-4">Add Product </p>
     </div>
 
@@ -81,24 +80,3 @@ function Addproduct() {
 }
 
 export default Addproduct;
-// export default function addproduct() {
-//   return (
-//     <div>
-//       <NavBack />
-//       <div className="flex flex-row items-center justify-center mt-10">
-//         <form>
-//           <Dropzone />
-//           <CustomInput ptext="Name Product" id="input-product" type="text" placeholder="product" />
-
-//           <CustomInput ptext="Price" id="input-price" type="price" placeholder="price" />
-
-//           <CustomInput ptext="Stock" id="input-stock" type="text" placeholder="0" />
-
-//           <div className="flex flex-row items-center justify-center pt-10">
-//             <Button kelas={"bg-[#9ACD32] text-white font-bold py-2 px-4 rounded-full w-50 mt-2 md: rounded w-35"} label="Add Product" />
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
