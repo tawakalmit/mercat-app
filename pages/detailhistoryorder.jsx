@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Historydetail from '../components/historydetail';
 
-export default function detailHistoryOrder() {
+export default function DetailHistoryOrder() {
 
   const [datas, setDatas] = useState([])
   const [productpic, setproductpic] = useState("")
