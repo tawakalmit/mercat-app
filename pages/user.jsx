@@ -25,6 +25,7 @@ export default function User() {
       .then((response) => response.json())
       .then((result) => {
         const { data, username } = result;
+        // console.log(data)
         setusername(username);
         setDatas(data);
       })
