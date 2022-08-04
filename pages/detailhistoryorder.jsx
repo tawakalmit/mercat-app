@@ -52,6 +52,7 @@ export default function DetailHistoryOrder() {
     </div>
     {datas.map((data) => (
           <Historydetail
+          key={data.productname}
           address={data.address}
           productname={data.productname}
           quantity={data.quantity}
