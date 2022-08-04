@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import ProductAdmin from "../components/productadmin";
 import { useRouter } from "next/router";
 import {IoLogOut} from "react-icons/io5"
-import Link from "next/link";
 
 
 function Dashboard() {
@@ -23,13 +22,14 @@ function Dashboard() {
       headers: { "Content-Type": "application/json" },
     };
     fetch(
-      "https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/products",
+      "https://projectbiasa.site/products",
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => {
         const { data } = result
         setDatas(data)
+        console.log(result)
       })
       .catch((err) => {
         alert(err.toString())
