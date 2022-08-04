@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../../components/navbar';
-import ShoppingCartCard from '../../components/shoppingcartcard';
+import NavBar from '../components/navbar';
+import ShoppingCartCard from '../components/shoppingcartcard';
 import Link from 'next/link';
 
 const ShoppingCart =() => {

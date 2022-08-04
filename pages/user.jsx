@@ -27,7 +27,6 @@ export default function User() {
         const { data, username } = result;
         setusername(username);
         setDatas(data);
-        console.log(data);
       })
       .catch((err) => {
         alert(err.toString());

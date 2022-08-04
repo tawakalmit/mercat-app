@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import DashboardCard from '../../components/dashboardcard';
-import NavBar from '../../components/navbar';
+import DashboardCard from '../components/dashboardcard';
+import NavBar from '../components/navbar';
 
 const ProductPage =() => {
 
