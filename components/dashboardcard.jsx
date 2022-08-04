@@ -5,6 +5,37 @@ import Link from 'next/link';
 
 const DashboardCard = ({productname, price, stok}) =>{
 
+  const [productid, setproductid] = useState('')
+  const [quantity, setquantity] = useState('')
+  const [loading, setLoading] = useState("")
+
+  const handleAddCart = async (e) => {
+      setLoading(true);
+      e.preventDefault();
+      const body = {
+        productid,
+        quantity,
+      };
+      var requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "aplication/json" },
+        body: JSON.stringify(body),
+      };
+      fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/carts`, requestOptions)
+        .then((response) => response.json(body))
+        .then((result) => {
+          console.log(result);
+          const { message } = result;
+          if (result.code === 200) {
+            alert(message)
+          }
+          alert(message);
+        })
+        .catch((error) => {
+          alert(error.toString());
+        })
+        .finally(() => setLoading(false));
+    };
 
     return(
         <div className="mb-5">
@@ -18,7 +49,7 @@ const DashboardCard = ({productname, price, stok}) =>{
                 </div>
                 <div className="mt-1.5 flex items-center justify-around">
                 
-                <button className="rounded-full w-12 h-5.5 bg-[#65BDBE] text-xs text-white border-2 md:w-20 h-7">+Cart</button>
+                <button onClick={(e) => handleAddCart(e)} className="rounded-full w-12 h-5.5 bg-[#65BDBE] text-xs text-white border-2 md:w-20 h-7">+Cart</button>
                 </div>
             </div>
         </div>

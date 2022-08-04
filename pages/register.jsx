@@ -38,7 +38,7 @@ function Register() {
       header: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     };
-    fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/users", requestOptions)
+    fetch("https://projectbiasa.site/users", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const { message, data } = result;
