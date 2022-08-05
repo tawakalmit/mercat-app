@@ -23,7 +23,6 @@ export default function Userhighlight({ username, photoprofile }) {
     fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/users`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         const { message } = result;
         if (result.code === 200) {
           if (message) {

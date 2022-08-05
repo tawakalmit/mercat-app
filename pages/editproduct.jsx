@@ -22,34 +22,64 @@ function Editproduct() {
     }
   }, [productpic, productname, price, stock]);
 
+  // const handleSubmit = async (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+  //   const body = {
+  //     productpic,
+  //     productname,
+  //     price,
+  //     stock,
+  //   };
+  //   var requestOptions = {
+  //     method: "PUT",
+  //     headers: { "Content-Type": "aplication/json" },
+  //     body: JSON.stringify(body),
+  //   };
+  //   fetch(`https://projectbiasa.site/admin/products/{productid}`, requestOptions)
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       const { message } = result;
+  //       if (result.code === 200) {
+  //         if (message) {
+  //           route.push("/dasboard");
+  //         }
+  //       }
+  //       alert(message);
+  //     })
+  //     .catch((error) => {
+  //       alert(error.toString());
+  //     })
+  //     .finally(() => setLoading(false));
+  // };
+
+  const [objSubmit, setObjSubmit] = useState({});
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const body = {
-      productpic,
-      productname,
-      price,
-      stock,
-    };
+    const formData = new FormData();
+    for (const key in objSubmit) {
+      formData.append(key, objSubmit[key]);
+    }
     var requestOptions = {
       method: "PUT",
-      headers: { "Content-Type": "aplication/json" },
-      body: JSON.stringify(body),
+      headers: {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MSwiUm9sZSI6ImFkbWluIn0.wL5LPPl44CKPjG4og_zU9lPw9_MlObWa2EWebWh2lFY`,
+      },
+      body: formData,
     };
-    fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/admin/products/{productid}`, requestOptions)
+
+    fetch(
+      "https://alta-kitchen-sink.herokuapp.com/api/v1/profile",
+      requestOptions
+    )
       .then((response) => response.json())
       .then((result) => {
         const { message } = result;
-        if (result.code === 200) {
-          if (message) {
-            route.push("/dasboard");
-          }
-        }
         alert(message);
+        setObjSubmit({});
       })
-      .catch((error) => {
-        alert(error.toString());
-      })
+      .catch((error) => alert(error.toString()))
       .finally(() => setLoading(false));
   };
 

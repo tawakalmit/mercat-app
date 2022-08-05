@@ -20,12 +20,13 @@ const ShoppingCart = () => {
   const fetchData = () => {
     var requestOptions = {
       method: "get",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MSwiUm9sZSI6ImFkbWluIn0.wL5LPPl44CKPjG4og_zU9lPw9_MlObWa2EWebWh2lFY`,
+      "Content-Type": "application/json" },
     };
-    fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/carts", requestOptions)
+    fetch("https://projectbiasa.site/carts", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        const { data } = result;
+        const {data, message} = result;
         setDatas(data);
       })
       .catch((err) => {
@@ -49,7 +50,7 @@ const ShoppingCart = () => {
       header: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     };
-    fetch("https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/orders", requestOptions)
+    fetch("https://projectbiasa.site/orders", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const { message } = result;

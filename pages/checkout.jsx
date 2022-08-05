@@ -50,9 +50,7 @@ const Checkout = () => {
     fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/orders/{productid}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         const { message } = result;
-        console.log("ini console", message);
         if (result.code === 200) {
           if (message) {
             route.push("/shoppingcart");
