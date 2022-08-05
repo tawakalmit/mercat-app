@@ -24,7 +24,6 @@ const DashboardCard = ({productname, price, stok}) =>{
       fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/carts`, requestOptions)
         .then((response) => response.json(body))
         .then((result) => {
-          console.log(result);
           const { message } = result;
           if (result.code === 200) {
             alert(message)

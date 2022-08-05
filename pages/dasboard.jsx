@@ -30,7 +30,6 @@ function Dashboard() {
       .then((result) => {
         const { data } = result
         setDatas(data);
-        console.log(datas)
       })
       .catch((err) => {
         alert(err.toString())

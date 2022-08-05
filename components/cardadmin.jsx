@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-import Link from 'next/link';
+import { useRouter } from "next/router";
 const CardAdmin = () =>{
+    const route = useRouter();
     const [counter, setCounter]=useState(5);
 
     const increment =()=>{
@@ -26,7 +26,8 @@ const CardAdmin = () =>{
                 <p className="text-xs font-medium">{counter}</p>
                 </div>
                 <div className="mt-1.5 flex items-center justify-around">
-                <Link href='/admin/editproduct'><button className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Edit</button></Link>
+                <button onClick={() => {
+          route.push("/editproduct")}} className="rounded-full w-12 h-5.5 bg-slate-400 text-xs text-white">Edit</button>
                 <button className="rounded-full w-12 h-5.5 bg-white text-xs text-slate-400 border-2 border-slate-400">Delete</button>
                 </div>
             </div>

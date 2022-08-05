@@ -26,12 +26,8 @@ const ShoppingCart = () => {
     fetch("https://projectbiasa.site/carts", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result)
         const {data, message} = result;
-        console.log({data})
         setDatas(data);
-        console.log(datas)
-        console.log(datas[0]);
       })
       .catch((err) => {
         alert(err.toString());
