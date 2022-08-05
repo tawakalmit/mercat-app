@@ -39,6 +39,33 @@ const Checkout = () => {
       .finally(() => setLoading(false));
   };
 
+  const handleDelete = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    var requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "aplication/json" },
+    };
+    fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/orders/{productid}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        const { message } = result;
+        console.log("ini console", message);
+        if (result.code === 200) {
+          if (message) {
+            route.push("/shoppingcart");
+          }
+        }
+        alert(message);
+      })
+      .catch((error) => {
+        alert(error.toString());
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <>
       <div className="w-full h-none bg-lime-400 flex justify-between py-5 px-7">
@@ -66,6 +93,7 @@ const Checkout = () => {
       </div>
       <div className="w-full h-auto mt-9 flex justify-center my-2 ">
         <button className="bg-slate-400 rounded-3xl w-36 h-10 font-bold text-lg text-white">Checkout</button>
+        <button className="ml-3 bg-[#E74C3C] rounded-3xl w-36 h-10 font-bold text-lg text-white" onClick={(e) => handleDelete(e)}>Cancel</button>
       </div>
     </>
   );
