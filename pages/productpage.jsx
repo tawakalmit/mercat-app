@@ -21,7 +21,7 @@ const ProductPage =() => {
       headers: { "Content-Type": "application/json" },
     };
     fetch(
-      "https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/products",
+      "https://projectbiasa.site/products",
       requestOptions
     )
       .then((response) => response.json())

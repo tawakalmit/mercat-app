@@ -36,7 +36,7 @@ function Editproduct() {
       headers: { "Content-Type": "aplication/json" },
       body: JSON.stringify(body),
     };
-    fetch(`https://virtserver.swaggerhub.com/DianNurdiana-alt/E-STORE/1.0.0/admin/products/{productid}`, requestOptions)
+    fetch(`https://projectbiasa.site/admin/products/{productid}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const { message } = result;

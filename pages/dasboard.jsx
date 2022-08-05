@@ -8,13 +8,14 @@ function Dashboard() {
   const route = useRouter();
   const [datas, setDatas] = useState([])
   const [productname, setproductname] = useState("")
+  const [productphoto, seetproductphoto] = useState("")
   const [price, setprice] = useState("")
   const [stock, setstock] = useState("")
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetchData();
-  }, [productname, price, stock]);
+  }, [productname, price, stock, productphoto]);
 
   const fetchData = () => {
     var requestOptions = {
@@ -28,8 +29,8 @@ function Dashboard() {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result
-        setDatas(data)
-        console.log(result)
+        setDatas(data);
+        console.log(datas)
       })
       .catch((err) => {
         alert(err.toString())
@@ -54,7 +55,8 @@ function Dashboard() {
       <div className="w-full flex-wrap mx-auto mt-5 flex justify-around md:w-10/12">
         {datas.map((data) => (
           <ProductAdmin
-          key={data.productname}
+          productphoto={data.productphoto}
+          key={data.id}
           productname={data.productname}
           price={data.price.toLocaleString()}
           stock={data.stock} onClick={(e)=>handleDelete}
